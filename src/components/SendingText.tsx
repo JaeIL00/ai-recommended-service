@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import { useMutation } from "react-query";
-import { fetchAiAnswer } from "../api/useApi";
+import { fetchAiAnswer } from "../api/UseApi";
 
 export const SendingText = () => {
+  const [saidAi, setSaidAi] = useState<string>("");
   const kogptMutation = useMutation("textToAi", fetchAiAnswer, {
-    onMutate: (variable) => {
-      console.log("onMutate", variable);
-      // variable : {loginId: 'xxx', password; 'xxx'}
-    },
     onError: (error, variable, context) => {
-      console.log("error", error, variable, context);
+      console.log("error");
     },
     onSuccess: (data, variables, context) => {
-      console.log("success", data, variables, context);
+      console.log("success");
+      setSaidAi(data.generations[0].text);
     },
   });
   type reqBodyType = {
@@ -21,7 +19,7 @@ export const SendingText = () => {
     temperature: number;
     top_p: number;
   };
-  const [userInputText, setUserInputText] = useState("");
+  const [userInputText, setUserInputText] = useState<string>("");
   const reqBody: reqBodyType = {
     prompt: userInputText, // 전달할 제시어
     max_tokens: 100, // koGPT의 응답 문자열 길이
@@ -30,16 +28,18 @@ export const SendingText = () => {
   };
 
   const koSubmitHandler = () => {
-    // if (event.key === "Enter") kogptMutation.mutate(reqBody);
     kogptMutation.mutate(reqBody);
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center", margin: "10vw" }}>
+      <h1>내가 말할거 같으면</h1>
+      <h4>{kogptMutation.isLoading ? "................." : saidAi}</h4>
       <input
         type="text"
+        placeholder="인간 시대의 끝이 도래했다."
         onChange={(event) => setUserInputText(event.target.value)}
-        // onKeyDown={(event) => koSubmitHandler(event)}
+        style={{ width: "80vw", height: "3vh" }}
       />
       <button onClick={() => koSubmitHandler()}>전송</button>
     </div>
