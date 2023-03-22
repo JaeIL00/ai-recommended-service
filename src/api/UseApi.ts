@@ -1,8 +1,6 @@
 type reqBodyType = {
   prompt: string;
   max_tokens: number;
-  temperature: number;
-  top_p: number;
 };
 
 export const fetchAiAnswer = async (reqBody: reqBodyType) => {
