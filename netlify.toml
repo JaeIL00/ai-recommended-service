@@ -1,5 +1,0 @@
-[[redirects]]
-from = "/proxy/*"
-  to = "https://api.kakaobrain.com/:splat"  
-  status = 200
-  force = true
