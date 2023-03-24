@@ -44,7 +44,5 @@ export const KakaoLogin = () => {
 		navigate('/')
 	}
 	
-	return (
-		<div>KakaoLogin</div>
-	)
+	return <></>
 }

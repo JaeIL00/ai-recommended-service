@@ -15,7 +15,6 @@ export const HeaderTitle = styled.h2`
 `
 export const LogoutButton = styled.button`
 	background: none;
-	border: none;
 	font-size: 1.2vh;
 	color: #C5C5C5;
 	margin-right: 2.3vw;
