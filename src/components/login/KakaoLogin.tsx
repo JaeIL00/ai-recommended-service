@@ -33,10 +33,10 @@ export const KakaoLogin = () => {
 	})
 
 	// 유저 정보 가져오기(닉네임, 프로필썸네일)
-	const setaaa = useSetRecoilState(userInfoState)
+	const setUser = useSetRecoilState(userInfoState)
 	const getUserInfo = async () => {
 		const user = await Kakao.API.request({url: '/v2/user/me'})
-		setaaa({
+		setUser({
 			id: user.id,
 			nickname: user.properties.nickname,
 			thumbnail_image: user.properties.thumbnail_image

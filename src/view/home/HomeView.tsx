@@ -10,11 +10,15 @@ import {
 	RGuideText
 } from '../../styles/home/HomeStyles'
 
-export const HomeView = () => {
+type homePropsTypes = {
+	name: string
+}
+
+export const HomeView = ({name}: homePropsTypes) => {
 	return (
 		<Container>
 			<GuideText>
-				아직 재일님 음악 취향을 잘 몰라요😢<br />
+				아직 {name}님 음악 취향을 잘 몰라요😢<br />
 				테스트를 진행해서<br />
 				AI에게 음악 추천 받아보세요!
 			</GuideText>
