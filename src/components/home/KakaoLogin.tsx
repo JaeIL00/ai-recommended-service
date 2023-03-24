@@ -21,10 +21,10 @@ export const KakaoLogin = () => {
 	const {mutate} = useMutation('getKakaoToken', getKakaoToken, {
 		onSuccess(data) {
 			if(data.access_token) {
-				Kakao.init(import.meta.env.VITE_KAKAO_REST_API_KEY)
-				Kakao.Auth.setAccessToken(data.access_token);
-				localStorage.setItem('token', data.access_token)
-				getUserInfo()
+				// Kakao.init(import.meta.env.VITE_KAKAO_REST_API_KEY)
+				// Kakao.Auth.setAccessToken(data.access_token);
+				// localStorage.setItem('token', data.access_token)
+				// getUserInfo()
 			}
 			else navigate('/signin')
 		}
