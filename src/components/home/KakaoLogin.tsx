@@ -13,9 +13,9 @@ export const KakaoLogin = () => {
 	const kakaoCode = location.search.split('=')[1]
 
 	// 마운트 후 토큰 발급 함수 호출
-	useEffect(() => {
-		mutate(kakaoCode)
-	},[])
+	// useEffect(() => {
+	// 	mutate(kakaoCode)
+	// },[])
 
 	// 인가코드로 토큰 발급
 	const {mutate} = useMutation('getKakaoToken', getKakaoToken, {
