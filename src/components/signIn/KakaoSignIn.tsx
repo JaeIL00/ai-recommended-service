@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useMutation } from 'react-query'
 import { useLocation,useNavigate } from 'react-router-dom'
+import { useSetRecoilState } from 'recoil'
 import { getKakaoToken } from '../../api/UseApi'
+import { userInfo } from '../../recoil/Atoms'
 
 const { Kakao } = window
 
-export const KakaoLogin = () => {
+export const KakaoSignIn = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
 	
@@ -21,26 +23,26 @@ export const KakaoLogin = () => {
 	const {mutate} = useMutation('getKakaoToken', getKakaoToken, {
 		onSuccess(data) {
 			if(data.access_token) {
-				// Kakao.init(import.meta.env.VITE_KAKAO_REST_API_KEY)
-				// Kakao.Auth.setAccessToken(data.access_token);
-				// localStorage.setItem('token', data.access_token)
-				// getUserInfo()
-				console.log(data.access_token)
+				Kakao.init(import.meta.env.VITE_KAKAO_REST_API_KEY)
+				Kakao.Auth.setAccessToken(data.access_token);
+				localStorage.setItem('token', data.access_token)
+				getUserInfo()
 			}
 			else navigate('/signin')
 		}
 	})
 
 	// 유저 정보 가져오기(닉네임, 프로필썸네일)
+	const setaaa = useSetRecoilState(userInfo)
 	const getUserInfo = async () => {
 		const user = await Kakao.API.request({url: '/v2/user/me'})
-		// 유저 정보 전역으로 관리하여 헤더 프로필과 테스트에서 쓰이도록 관리
-		// user.properties.nickname
-		// user.properties.thumbnail_image
+		setaaa({
+			id: user.id,
+			nickname: user.properties.nickname,
+			thumbnail_image: user.properties.thumbnail_image
+		})
 		navigate('/')
 	}
-	
-	
 	
 	return (
 		<div>KakaoLogin</div>

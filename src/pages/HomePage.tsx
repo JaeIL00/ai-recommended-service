@@ -1,8 +1,10 @@
-import React from 'react'
-import { HomeView } from '../view/home/HomeView'
+import { IsLogin } from '../components/common/IsLogin'
 
 export const HomePage = () => {
+	IsLogin()	
 	return (
-		<HomeView />
+		<div>
+			HomePage
+		</div>
 	)
 }
