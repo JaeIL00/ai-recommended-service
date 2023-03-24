@@ -1,8 +1,9 @@
-
+import { isMobile } from 'react-device-detect';
 
 const REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY
+const NATIVE_KEY = import.meta.env.VITE_KAKAO_NATIVE_KEY
 const REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URL
-export const getKakaoAuthCode = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code&prompt=login`
+export const getKakaoAuthCode = `https://kauth.kakao.com/oauth/authorize?client_id=${isMobile? NATIVE_KEY : REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code&prompt=login`
 
 export const getKakaoToken = async (KAKAO_CODE: string) => {
 	const response = await fetch('https://kauth.kakao.com/oauth/token', {
