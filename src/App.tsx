@@ -6,9 +6,9 @@ import { RecommendPage } from "./pages/RecommendPage";
 function App() {
   return (
       <Routes>
-        <Route path="/" element={<HomePage />} />
-				<Route path="/login" element={<KakaoLogin />} />
-        <Route path="/recommend" element={<RecommendPage />} />
+				<Route path="/" element={<RecommendPage />} />
+				<Route path="/signin" element={<HomePage />} />
+				<Route path="/signin/callback" element={<KakaoLogin />} />
         <Route path="/test" />
         <Route path="/result" />
       </Routes>

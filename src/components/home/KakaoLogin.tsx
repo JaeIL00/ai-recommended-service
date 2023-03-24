@@ -26,7 +26,7 @@ export const KakaoLogin = () => {
 				localStorage.setItem('token', data.access_token)
 				getUserInfo()
 			}
-			else navigate('/')
+			else navigate('/signin')
 		}
 	})
 
@@ -36,7 +36,7 @@ export const KakaoLogin = () => {
 		// 유저 정보 전역으로 관리하여 헤더 프로필과 테스트에서 쓰이도록 관리
 		// user.properties.nickname
 		// user.properties.thumbnail_image
-		navigate('/recommend')
+		navigate('/')
 	}
 	
 	
