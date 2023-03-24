@@ -5,7 +5,7 @@ export const IsLogin = () => {
 	const navigate = useNavigate()
 	useEffect(() => {
 		if(!localStorage.getItem('token')) {
-			navigate('/signin')
+			navigate('/login')
 		}
 	},[])
 }

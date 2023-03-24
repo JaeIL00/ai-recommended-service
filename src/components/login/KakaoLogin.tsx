@@ -3,11 +3,11 @@ import { useMutation } from 'react-query'
 import { useLocation,useNavigate } from 'react-router-dom'
 import { useSetRecoilState } from 'recoil'
 import { getKakaoToken } from '../../api/UseApi'
-import { userInfo } from '../../recoil/Atoms'
+import { userInfoState } from '../../recoil/Atoms'
 
 const { Kakao } = window
 
-export const KakaoSignIn = () => {
+export const KakaoLogin = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
 	
@@ -28,12 +28,12 @@ export const KakaoSignIn = () => {
 				localStorage.setItem('token', data.access_token)
 				getUserInfo()
 			}
-			else navigate('/signin')
+			else navigate('/login')
 		}
 	})
 
 	// 유저 정보 가져오기(닉네임, 프로필썸네일)
-	const setaaa = useSetRecoilState(userInfo)
+	const setaaa = useSetRecoilState(userInfoState)
 	const getUserInfo = async () => {
 		const user = await Kakao.API.request({url: '/v2/user/me'})
 		setaaa({

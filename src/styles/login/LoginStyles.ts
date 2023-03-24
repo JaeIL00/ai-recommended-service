@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Container = styled.div`
-width: 100vw;
-height: 100vh;
-position: fixed;
-text-align: center;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	text-align: center;
 `
 export const Title = styled.h1`
 	font-size: 6.5vh;
@@ -21,12 +21,11 @@ export const GuideText = styled.span<{top: string, left: string}>`
 	line-height: 3.5vh
 `
 export const KakaoLogin = styled(Link)`
-width: 80vw;
-display: inline-block;
-margin-top: 60vh;
-img {
 	width: 80vw;
-}
+	margin-top: 60vh;
+	img {
+		width: 80vw;
+	}
 `
 export const BackObjectBox = styled.div`
 	width: 100vw;

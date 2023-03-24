@@ -8,10 +8,10 @@ import {
 	BackObjectBox,
 	TopDownCircle,
 	BlueObject,
-} from '../../styles/signIn/SignInStyles'
+} from '../../styles/login/LoginStyles'
 import kakaoDesign from '../../assets/kakao_login_button.png'
 
-export const SignInView = () => {
+export const LoginView = () => {
 	return (
 		<Container>
 			<Title>음악 추천 AI</Title>

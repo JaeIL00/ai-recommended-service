@@ -1,17 +1,17 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { KakaoSignIn } from "./components/signIn/KakaoSignIn";
-import { SignInPage } from "./pages/SignInPage";
+import { Route, Routes } from "react-router-dom";
+import { KakaoLogin } from "./components/login/KakaoLogin";
+import { LoginPage } from "./pages/LoginPage";
 import { HomePage } from "./pages/HomePage";
 
 function App() {
   return (
-      <Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/signin" element={<SignInPage />} />
-				<Route path="/signin/callback" element={<KakaoSignIn />} />
-        <Route path="/test" />
-        <Route path="/result" />
-      </Routes>
+		<Routes>
+			<Route path="/" element={<HomePage />} />
+			<Route path="/login" element={<LoginPage />} />
+			<Route path="/login/callback" element={<KakaoLogin />} />
+			<Route path="/test" />
+			<Route path="/result" />
+		</Routes>
   );
 }
 
