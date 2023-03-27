@@ -12,9 +12,10 @@ import {
 
 type homePropsTypes = {
 	name: string
+	moveToMusicRecommendTest: () => void
 }
 
-export const HomeView = ({name}: homePropsTypes) => {
+export const HomeView = ({name, moveToMusicRecommendTest}: homePropsTypes) => {
 	return (
 		<Container>
 			<GuideText>
@@ -22,7 +23,7 @@ export const HomeView = ({name}: homePropsTypes) => {
 				테스트를 진행해서<br />
 				AI에게 음악 추천 받아보세요!
 			</GuideText>
-			<TestStartButton>테스트 시작하기</TestStartButton>
+			<TestStartButton onClick={moveToMusicRecommendTest}>테스트 시작하기</TestStartButton>
 			<RecordContain>
 				<RTitle>기록</RTitle>
 				<RBox>
