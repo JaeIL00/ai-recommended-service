@@ -1,9 +1,9 @@
-name: main
+name: test-deploy
 
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   build:
